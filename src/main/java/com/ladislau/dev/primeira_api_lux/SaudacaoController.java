@@ -1,5 +1,6 @@
 package com.ladislau.dev.primeira_api_lux;
 
+import com.ladislau.dev.primeira_api_lux.service.SaudacaoService; //Importar o Serviço
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,9 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SaudacaoController {
 
+    //Variavel para guardar o Serviço injetado.
+    private final SaudacaoService service;
+
+    //O Contrutor O Spring INJETA a instancia do Service aqui.
+    public SaudacaoController(SaudacaoService service) {
+        this.service = service;
+    }
+
     // 2. Anotação essencial: Mapeia a requisição GET para a URL "/ola"
     @GetMapping("/ola")
     public String enviarSaudacao() {
-        return "Olá, Dev! Sua primeira API REST em Spring Boot está funcionando!";
+        //return "Olá, Dev! Sua primeira API REST em Spring Boot está funcionando!";
+        return service.obterSaudacao();
     }
 }
