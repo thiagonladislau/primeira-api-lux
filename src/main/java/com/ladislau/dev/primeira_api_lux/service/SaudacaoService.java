@@ -10,4 +10,9 @@ public class SaudacaoService {
         // Nova lógica, agora residindo na camada de Service
         return "Olá do Service! Seu Back-end está arquitetado corretamente.";
     }
+
+    //NOVO METODO Aceitar nome como Parâmetro
+    public String obterSaudacaoPersonalizada(String nome) {
+        return "Olá, " + nome + " A sua API está aceitando dados dinâmicos.";
+    }
 }
